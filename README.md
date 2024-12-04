@@ -1,5 +1,7 @@
 # PHP From Scratch
 
+---
+
 -   Data Types & Variables
 -   Arrays & Iteration
 -   Control Structures & Conditionals
@@ -7,6 +9,8 @@
 -   Object Oriented Programming
 -   Superglobals (`$_GET`, `$_POST`, `$_SESSION`, `$_COOKIES`, etc)
 -   Database Integration & PDO
+
+---
 
 -   Custom Laravel-like router
 -   Framework(Router, Database, Validation, and Session) and App(Controllers and Views)
