@@ -85,9 +85,7 @@ $output = number_format(1234.5678, 2, ".", ",");
 
   <div class="container mx-auto p-4 mt-4">
     <div class="bg-white rounded-lg shadow-md p-6 mt-6">
-      <p class="text-xl">
-        <?= $output ?>
-      </p>
+      <p class="text-xl"> <?= $output ?> </p>
     </div>
   </div>
 </body>
