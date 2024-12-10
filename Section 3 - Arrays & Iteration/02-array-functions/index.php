@@ -41,6 +41,23 @@ array_unshift($users, "User5");
 
 // array_sum();
 $output = "Sum of IDs: " . array_sum($ids); // 308
+
+// array_search()
+$output = "User3 is at index: " . array_search("User3", $users); // 1
+
+// in_array()
+$output = "User3 exists: " . in_array("User3", $users); // 1 (true)
+// var_dump(in_array("User2", $users)); // bool(false)
+
+// explode()
+$tags = "php,javascript,rust,java,html";
+$tagsArr = explode(",", $tags);
+$output = "<pre>" . print_r($tagsArr, true) . "</pre>";
+
+// implode()
+$output = implode(", ", $users); // User5, User3, User1
+
+// PHP Documentation: https://www.php.net/manual/en/ref.array.php
 ?>
 
 <!DOCTYPE html>
@@ -54,14 +71,14 @@ $output = "Sum of IDs: " . array_sum($ids); // 308
 </head>
 
 <body class="bg-black text-white">
-    <header class="bg-blue-500 p-4">
+    <header class="bg-blue-600 p-4">
         <div class="container mx-auto">
             <h1 class="text-3xl text-center font-semibold">PHP From Scratch</h1>
         </div>
     </header>
 
     <div class="container mx-auto p-4 mt-4">
-        <div class="bg-gray-100 text-black rounded-lg shadow-md p-6 mt-6">
+        <div class="bg-blue-400 text-black rounded-lg shadow-md p-6 mt-6">
             <p class="text-xl"><?= $output ?></p>
 
             <h2 class="text-xl font-semibold my-4">IDs Array:</h2>
