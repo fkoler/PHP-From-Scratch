@@ -68,7 +68,7 @@ do {
                 do { ?>
                     <li>Number: <?= $i ?></li>
                 <?php $i++;
-                } while ($i <= 10) ?>
+                } while ($i <= 10); ?>
             </ul>
         </div>
     </div>
