@@ -37,7 +37,7 @@ echo addAll(1, 2, 100, 200, 1000, 2000) . "<br>";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Functions and Return Values</title>
+    <title>Parameters & Arguments</title>
 </head>
 
 <body class="bg-black text-white"></body>
