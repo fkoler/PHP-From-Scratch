@@ -64,6 +64,15 @@ function highlightTags($tags, $searchTerm)
     $tagsStr
   );
 }
+
+function calculateAverageSalary($jobListings)
+{
+  $averageSalary = !empty($jobListings)
+    ? array_sum(array_column($jobListings, "salary")) / count($jobListings)
+    : 0;
+
+  return formatSalary($averageSalary);
+}
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +82,7 @@ function highlightTags($tags, $searchTerm)
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Activity: Job Listings Helper Functions</title>
+  <title>Average Salary Challenge</title>
 </head>
 
 <body class="bg-black">
@@ -83,8 +92,15 @@ function highlightTags($tags, $searchTerm)
     </div>
   </header>
 
-  <div class="container mx-auto p-4 mt-4">
+  <div class="container mx-auto p-4 mb-4">
     <!-- Output -->
+    <div class="w-1/3 bg-gray-700 text-white rounded-lg shadow-md p-6 mx-auto">
+      <h2 class="text-2xl font-semibold text-center">
+        Average Salary:
+        <?= calculateAverageSalary($listings) ?>
+      </h2>
+    </div>
+
     <?php foreach ($listings as $index => $job) : ?>
       <div class="md my-4">
         <div class="

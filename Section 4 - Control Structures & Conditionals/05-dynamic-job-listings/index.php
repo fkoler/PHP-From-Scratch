@@ -42,7 +42,7 @@ $listings = [
   ],
   [
     "id" => 6,
-    "title" => "Java Develper",
+    "title" => "Java Developer",
     "description" => "MBS is in urgent need of a Sr. Java Developer in Winnipeg, MB. This position is a full-time, temp to hire opportunity.",
     "salary" => 90000,
     "location" => "Winnipeg",
