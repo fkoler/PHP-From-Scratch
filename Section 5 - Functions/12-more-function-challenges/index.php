@@ -85,13 +85,13 @@ echo '<br>';
 
 // array_reduce()
 // 1
-$findLongestWord = function ($sentence) {
-  return array_reduce(explode(" ", $sentence), function ($longest, $word) {
-    return strlen($word) > strlen($longest) ? $word : $longest;
-  }, "");
-};
+// $findLongestWord = function ($sentence) {
+//   return array_reduce(explode(" ", $sentence), function ($longest, $word) {
+//     return strlen($word) > strlen($longest) ? $word : $longest;
+//   }, "");
+// };
 
-echo $findLongestWord("Die Sonne scheint mir aus den Augen");
+// echo $findLongestWord("Die Sonne scheint mir aus den Augen");
 
 // 2
 // $findLongestWord = fn($sentence) => array_reduce(
@@ -103,12 +103,12 @@ echo $findLongestWord("Die Sonne scheint mir aus den Augen");
 // echo $findLongestWord("Die Sonne scheint mir aus den Augen");
 
 // array_map() & array_keys() & max()
-// $findLongestWord = fn($sentence) => explode(" ", $sentence)[array_keys(
-//   array_map("strlen", explode(" ", $sentence)),
-//   max(array_map("strlen", explode(" ", $sentence)))
-// )[0]];
+$findLongestWord = fn($sentence) => explode(" ", $sentence)[array_keys(
+  array_map("strlen", explode(" ", $sentence)),
+  max(array_map("strlen", explode(" ", $sentence)))
+)[0]];
 
-// echo $findLongestWord("Die Sonne scheint mir aus den Augen");
+echo $findLongestWord("Die Sonne scheint mir aus den Augen");
 ?>
 
 <!DOCTYPE html>
