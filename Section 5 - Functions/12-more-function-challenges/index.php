@@ -111,18 +111,35 @@ echo '<br>';
 // echo $findLongestWord("Die Sonne scheint mir aus den Augen");
 
 // do...while
+// function findLongestWord($sentence)
+// {
+//   $words = explode(" ", $sentence);
+//   $index = 0;
+//   $longestWord = "";
+
+//   do {
+//     if (strlen($words[$index]) > strlen($longestWord)) {
+//       $longestWord = $words[$index];
+//     }
+//     $index++;
+//   } while ($index < count($words));
+
+//   return $longestWord;
+// }
+
+// echo findLongestWord("Die Sonne scheint mir aus den Augen");
+
+// for
 function findLongestWord($sentence)
 {
   $words = explode(" ", $sentence);
-  $index = 0;
   $longestWord = "";
 
-  do {
-    if (strlen($words[$index]) > strlen($longestWord)) {
-      $longestWord = $words[$index];
+  for ($i = 0; $i < count($words); $i++) {
+    if (strlen($words[$i]) > strlen($longestWord)) {
+      $longestWord = $words[$i];
     }
-    $index++;
-  } while ($index < count($words));
+  }
 
   return $longestWord;
 }
