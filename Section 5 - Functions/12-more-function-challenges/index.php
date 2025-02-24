@@ -130,21 +130,34 @@ echo '<br>';
 // echo findLongestWord("Die Sonne scheint mir aus den Augen");
 
 // for
-function findLongestWord($sentence)
-{
-  $words = explode(" ", $sentence);
-  $longestWord = "";
+// function findLongestWord($sentence)
+// {
+//   $words = explode(" ", $sentence);
+//   $longestWord = "";
 
-  for ($i = 0; $i < count($words); $i++) {
-    if (strlen($words[$i]) > strlen($longestWord)) {
-      $longestWord = $words[$i];
-    }
+//   for ($i = 0; $i < count($words); $i++) {
+//     if (strlen($words[$i]) > strlen($longestWord)) {
+//       $longestWord = $words[$i];
+//     }
+//   }
+
+//   return $longestWord;
+// }
+
+// echo findLongestWord("Die Sonne scheint mir aus den Augen");
+
+// recursive approach & array_shift()
+function findLongestWordRecursive($words, $longestWord = "")
+{
+  if (empty($words)) {
+    return $longestWord;
   }
 
-  return $longestWord;
+  $word = array_shift($words);
+  return findLongestWordRecursive($words, strlen($word) > strlen($longestWord) ? $word : $longestWord);
 }
 
-echo findLongestWord("Die Sonne scheint mir aus den Augen");
+echo findLongestWordRecursive(explode(" ", "Die Sonne scheint mir aus den Augen"));
 ?>
 
 <!DOCTYPE html>
