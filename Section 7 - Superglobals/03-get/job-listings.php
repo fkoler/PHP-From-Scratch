@@ -100,7 +100,7 @@ if (isset($_GET["location"]) && in_array($_GET["location"], $validLocations)) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Format Salary Refactor Challenge</title>
+  <title>GET - Data From Query Params</title>
 </head>
 
 <body class="bg-black">
