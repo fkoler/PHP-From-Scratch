@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         Create Job Listing
       </h1>
 
-      <form method="post">
+      <form method="post" enctype="multipart/form-data">
         <div class="mb-4">
           <label for="title" class="block text-gray-100 font-medium">Title</label>
           <input type="text" id="title" name="title" placeholder="Enter job title" class="bg-gray-300 text-gray-900 w-full px-4 py-2 border rounded focus:ring focus:ring-blue-300 focus:outline-none">
