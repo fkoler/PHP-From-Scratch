@@ -21,7 +21,6 @@ try {
     // If there is an error, catch it here
     echo "Connection Failed: " . $e->getMessage();
 }
-
 ?>
 
 <!DOCTYPE html>
