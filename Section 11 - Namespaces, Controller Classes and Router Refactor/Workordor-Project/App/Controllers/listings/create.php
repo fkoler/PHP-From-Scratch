@@ -1,3 +1,5 @@
 <?php
 
-loadView("listings/create");
+// loadView("listings/create");
+
+// ** We don'n need it anymore **
