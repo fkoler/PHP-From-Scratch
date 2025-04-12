@@ -102,6 +102,8 @@ class Router
 
             $match = true;
 
+            // Check if the number of segments matches
+
             // if ($route["uri"] === $uri && $route["method"] === $method) {
             //     // Extact controller and controllerMethod
             //     $controller = "App\\Controllers\\" . $route["controller"];
