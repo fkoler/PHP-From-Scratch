@@ -121,10 +121,20 @@ class Router
                         break;
                     }
 
+                    // Check for the param and add to $params array
                     if (preg_match("/\{(.+?)\}/", $routeSegments[$i], $matches)) {
                         $params[$matches[1]] = $uriSegments[$i];
-                        inspectAndDie($params);
+                        // inspectAndDie($params);
                     }
+                }
+
+                if ($match) {
+                    $controller = "App\\Controllers\\" . $route["controller"];
+                    $controllerMethod = $route["controllerMethod"];
+
+                    $controllerInstance = new $controller();
+                    $controllerInstance->$controllerMethod($params);
+                    return;
                 }
             }
 
