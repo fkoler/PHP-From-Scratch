@@ -122,8 +122,8 @@ class Router
                     }
 
                     if (preg_match("/\{(.+?)\}/", $routeSegments[$i], $matches)) {
-                        // inspectAndDie($matches[1]);
-                        inspectAndDie($uriSegments[$i]);
+                        $params[$matches[1]] = $uriSegments[$i];
+                        inspectAndDie($params);
                     }
                 }
             }
