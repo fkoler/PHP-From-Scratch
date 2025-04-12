@@ -18,7 +18,7 @@ class ListingController
     {
         $listings = $this->db->query("SELECT * FROM listings;")->fetchAll();
 
-        loadView("home", [
+        loadView("listings/index", [
             "listings" => $listings,
         ]);
     }
@@ -37,6 +37,12 @@ class ListingController
         ];
 
         $listing = $this->db->query("SELECT * FROM listings WHERE id = :id", $params)->fetch();
+
+        // Check if listing exists
+        if (!$listing) {
+            ErrorControler::notFound("Listing not found");
+            return;
+        }
 
         loadView("listings/show", [
             "listing" => $listing,
