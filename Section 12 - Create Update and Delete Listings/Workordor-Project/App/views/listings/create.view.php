@@ -10,7 +10,7 @@
         <div class="message bg-green-100 p-3 my-3">
           This is a success message.
         </div> -->
-        <form method="POST">
+        <form method="POST" action="/listings">
             <h2 class="text-2xl font-bold mb-6 text-center text-gray-500">
                 Job Info
             </h2>
@@ -94,12 +94,12 @@
                     class="w-full px-4 py-2 border rounded focus:outline-none" />
             </div>
             <button
-                class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 my-3 rounded focus:outline-none">
+                class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 my-3 rounded focus:outline-none">
                 Save
             </button>
             <a
                 href="/"
-                class="block text-center w-full bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded focus:outline-none">
+                class="block text-center w-full bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded focus:outline-none">
                 Cancel
             </a>
         </form>
