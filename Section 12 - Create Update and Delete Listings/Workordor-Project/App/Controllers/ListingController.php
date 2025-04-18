@@ -63,6 +63,9 @@ class ListingController
 
         $newListingData = array_map("sanitize", $newListingData);
 
+        // Default user_id
+        $newListingData["user_id"] = 1;
+
         $requiredFields = ["title", "description", "email", "city", "state"];
 
         $errors = [];
@@ -106,7 +109,14 @@ class ListingController
 
             $values = implode(", ", $values);
 
-            inspectAndDie($values);
+            // inspectAndDie($values);
+
+            $query = "INSERT INTO listings ({$fields}) VALUES ({$values})";
+
+            $this->db->query($query, $newListingData);
+
+            // Redirecting
+            redirect("/listings");
         }
     }
 }
