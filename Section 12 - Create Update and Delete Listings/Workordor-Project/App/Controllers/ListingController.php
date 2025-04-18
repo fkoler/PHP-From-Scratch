@@ -83,8 +83,30 @@ class ListingController
                 "listing" => $newListingData,
             ]);
         } else {
-            // Submit data
-            echo "Success";
+            $fields = [];
+
+            foreach ($newListingData as $field => $value) {
+                $fields[] = $field;
+            }
+
+            $fields = implode(", ", $fields);
+
+            $values = [];
+
+            foreach ($newListingData as $field => $value) {
+                // Convert empty strings to null
+                if ($value === "") {
+                    $newListingData[] = null;
+                }
+
+                $values[] = ":" . $field;
+            }
+
+            // inspectAndDie($fields);
+
+            $values = implode(", ", $values);
+
+            inspectAndDie($values);
         }
     }
 }
