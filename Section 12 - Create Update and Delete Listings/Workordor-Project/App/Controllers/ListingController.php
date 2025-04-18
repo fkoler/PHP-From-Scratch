@@ -66,7 +66,7 @@ class ListingController
         // Default user_id
         $newListingData["user_id"] = 1;
 
-        $requiredFields = ["title", "description", "email", "city", "state"];
+        $requiredFields = ["title", "description", "salary", "email", "city", "state"];
 
         $errors = [];
 
