@@ -53,7 +53,7 @@ class ListingController
             "id" => $id,
         ];
 
-        $listing = $this->db->query("SELECT * FROM listings WHERE id = :id", $params)->fetch();
+        $listing = $this->db->query("SELECT * FROM listings WHERE id = :id;", $params)->fetch();
 
         // Check if listing exists
         if (!$listing) {
@@ -127,7 +127,7 @@ class ListingController
 
             // inspectAndDie($values);
 
-            $query = "INSERT INTO listings ({$fields}) VALUES ({$values})";
+            $query = "INSERT INTO listings ({$fields}) VALUES ({$values});";
 
             $this->db->query($query, $newListingData);
 
@@ -157,6 +157,10 @@ class ListingController
             return;
         }
 
-        inspectAndDie($listing);
+        // inspectAndDie($listing);
+
+        $this->db->query("DELETE FROM listings WHERE id = :id;", $params);
+
+        redirect("/listings");
     }
 }
