@@ -1,6 +1,9 @@
 <?php
 
+// Home
 $router->get("/", "HomeController@index");
+
+// Listing
 $router->get("/listings", "ListingController@index");
 $router->get("/listings/create", "ListingController@create");
 $router->get("/listings/{id}", "ListingController@show");
@@ -15,3 +18,5 @@ $router->delete("/listings/{id}", "ListingController@destroy");
 // User
 $router->get("/auth/register", "UserController@create");
 $router->get("/auth/login", "UserController@login");
+
+$router->post("/auth/register", "UserController@store");
