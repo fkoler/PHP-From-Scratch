@@ -25,7 +25,7 @@
                     name="title"
                     placeholder="Job Title"
                     class="w-full px-4 py-2 border rounded focus:outline-none"
-                    value="<?= $listing->title ?? "" ?>">
+                    value="<?= $listing->title ?? '' ?>">
             </div>
 
             <!-- description -->
@@ -43,7 +43,7 @@
                     name="salary"
                     placeholder="Annual Salary"
                     class="w-full px-4 py-2 border rounded focus:outline-none"
-                    value="<?= $listing->salary ?? "" ?>">
+                    value="<?= $listing->salary ?? '' ?>">
             </div>
 
             <!-- requirements -->
@@ -53,7 +53,7 @@
                     name="requirements"
                     placeholder="Requirements"
                     class="w-full px-4 py-2 border rounded focus:outline-none"
-                    value="<?= $listing->requirements ?? "" ?>">
+                    value="<?= $listing->requirements ?? '' ?>">
             </div>
 
             <!-- benefits -->
@@ -63,7 +63,7 @@
                     name="benefits"
                     placeholder="Benefits"
                     class="w-full px-4 py-2 border rounded focus:outline-none"
-                    value="<?= $listing->benefits ?? "" ?>">
+                    value="<?= $listing->benefits ?? '' ?>">
             </div>
 
             <!-- tags -->
@@ -73,7 +73,7 @@
                     name="tags"
                     placeholder="Tags"
                     class="w-full px-4 py-2 border rounded focus:outline-none"
-                    value="<?= $listing->tags ?? "" ?>">
+                    value="<?= $listing->tags ?? '' ?>">
             </div>
 
             <h2 class="text-2xl font-bold mb-6 text-center text-gray-500">
@@ -87,7 +87,7 @@
                     name="company"
                     placeholder="Company Name"
                     class="w-full px-4 py-2 border rounded focus:outline-none"
-                    value="<?= $listing->company ?? "" ?>">
+                    value="<?= $listing->company ?? '' ?>">
             </div>
 
             <!-- address -->
@@ -97,7 +97,7 @@
                     name="address"
                     placeholder="Address"
                     class="w-full px-4 py-2 border rounded focus:outline-none"
-                    value="<?= $listing->address ?? "" ?>">
+                    value="<?= $listing->address ?? '' ?>">
             </div>
 
             <!-- city -->
@@ -107,7 +107,7 @@
                     name="city"
                     placeholder="City"
                     class="w-full px-4 py-2 border rounded focus:outline-none"
-                    value="<?= $listing->city ?? "" ?>">
+                    value="<?= $listing->city ?? '' ?>">
             </div>
 
             <!-- state -->
@@ -117,7 +117,7 @@
                     name="state"
                     placeholder="State"
                     class="w-full px-4 py-2 border rounded focus:outline-none"
-                    value="<?= $listing->state ?? "" ?>">
+                    value="<?= $listing->state ?? '' ?>">
             </div>
 
             <!-- phone -->
@@ -127,7 +127,7 @@
                     name="phone"
                     placeholder="Phone"
                     class="w-full px-4 py-2 border rounded focus:outline-none"
-                    value="<?= $listing->phone ?? "" ?>">
+                    value="<?= $listing->phone ?? '' ?>">
             </div>
 
             <!-- email -->
@@ -137,7 +137,7 @@
                     name="email"
                     placeholder="Email Address For Applications"
                     class="w-full px-4 py-2 border rounded focus:outline-none"
-                    value="<?= $listing->email ?? "" ?>">
+                    value="<?= $listing->email ?? '' ?>">
             </div>
 
             <button
