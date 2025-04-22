@@ -5,6 +5,9 @@
 <div class="flex justify-center items-center mt-20">
     <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-500 mx-6">
         <h2 class="text-4xl text-center font-bold mb-4">Register</h2>
+        <?= loadPartial("errors", [
+            "errors" => $errors ?? [],
+        ]) ?>
 
         <form method="POST" action="/auth/register">
             <div class="mb-4">
