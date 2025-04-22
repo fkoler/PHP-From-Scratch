@@ -52,8 +52,20 @@ class UserController
         $errors = [];
 
         // Validation
+        if (!Validation::string($name, $min = 2, $max = 50)) {
+            $errors["name"] = "Name must be between {$min} and {$max} characters";
+        }
+
         if (!Validation::email($email)) {
             $errors["email"] = "Please enter a valid email address";
+        }
+
+        if (!Validation::string($password, $min = 6, $max = 30)) {
+            $errors["password"] = "Password must be between {$min} and {$max} characters";
+        }
+
+        if (!Validation::match($password, $passwordConfirmation)) {
+            $errors["password_confirmation"] = "Passwords do not match";
         }
 
         if (!empty($errors)) {
