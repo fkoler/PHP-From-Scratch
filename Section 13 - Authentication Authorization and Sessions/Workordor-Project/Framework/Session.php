@@ -39,4 +39,39 @@ class Session
     {
         return isset($_SESSION[$key]) ? $_SESSION[$key] : $default;
     }
+
+    /**
+     * Check if session key exists
+     * 
+     * @param string $key
+     * @return bool
+     */
+    public static function hasSession($key)
+    {
+        return isset($_SESSION[$key]);
+    }
+
+    /**
+     * Clear session by key
+     * 
+     * @param string $key
+     * @return void
+     */
+    public static function clearSession($key)
+    {
+        if (isset($_SESSION[$key])) {
+            unset($_SESSION[$key]);
+        }
+    }
+
+    /**
+     * Clear all session data
+     * 
+     * @return void
+     */
+    public static function clearSessionData()
+    {
+        session_unset();
+        session_destroy();
+    }
 }
