@@ -148,4 +148,34 @@ class UserController
 
         redirect("/");
     }
+
+    /**
+     * Authenticate a user with email and password
+     * 
+     * @return void
+     */
+    public function authenticate()
+    {
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        $errors = [];
+
+        // Validation
+        if (!Validation::email($email)) {
+            $errors["email"] = "Please enter a valid email address";
+        }
+
+        if (!Validation::string($password, $min = 6, $max = 30)) {
+            $errors["password"] = "Password must be between {$min} and {$max} characters";
+        }
+
+        if (!empty($errors)) {
+            loadView("users/login", [
+                "errors" => $errors,
+            ]);
+
+            exit;
+        }
+    }
 }
