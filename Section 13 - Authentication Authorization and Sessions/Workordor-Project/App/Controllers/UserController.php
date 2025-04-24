@@ -170,6 +170,7 @@ class UserController
             $errors["password"] = "Password must be between {$min} and {$max} characters";
         }
 
+        // Check for errors
         if (!empty($errors)) {
             loadView("users/login", [
                 "errors" => $errors,
@@ -177,5 +178,44 @@ class UserController
 
             exit;
         }
+
+        // Check for email
+        $params = [
+            "email" => $email,
+        ];
+
+        $user = $this->db->query("SELECT * FROM users WHERE email = :email;", $params)->fetch();
+
+        if (!$user) {
+            $errors["email"] = "Incorrect credentials";
+
+            loadView("users/login", [
+                "errors" => $errors,
+            ]);
+
+            exit;
+        }
+
+        // Check if password is correct
+        if (!password_verify($password, $user->password)) {
+            $errors["email"] = "Incorrect credentials";
+
+            loadView("users/login", [
+                "errors" => $errors,
+            ]);
+
+            exit;
+        }
+
+        // Set user session
+        Session::setSession("user", [
+            "id" => $user->id,
+            "name" => $user->name,
+            "email" => $user->email,
+            "city" => $user->city,
+            "state" => $user->state,
+        ]);
+
+        redirect("/");
     }
 }
