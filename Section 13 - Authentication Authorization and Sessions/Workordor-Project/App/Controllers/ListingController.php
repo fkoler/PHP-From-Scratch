@@ -5,6 +5,7 @@ namespace App\Controllers;
 use Framework\Database;
 use Framework\Validation;
 use Framework\Session;
+use Framework\Authorization;
 
 class ListingController
 {
@@ -163,7 +164,13 @@ class ListingController
         }
 
         // Impl Authorization
-        if (Session::getSession("user")["id"] !== $listing->user_id) {
+        // if (Session::getSession("user")["id"] !== $listing->user_id) {
+        //     $_SESSION["error_message"] = "You are not authorized to delete this listing";
+
+        //     return redirect("/listings/" . $listing->id);
+        // }
+
+        if (!Authorization::isOwner($listing->user_id)) {
             $_SESSION["error_message"] = "You are not authorized to delete this listing";
 
             return redirect("/listings/" . $listing->id);
