@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Framework\Database;
 use Framework\Validation;
+use Framework\Session;
 
 class ListingController
 {
@@ -80,7 +81,10 @@ class ListingController
         $newListingData = array_map("sanitize", $newListingData);
 
         // Default user_id
-        $newListingData["user_id"] = 1;
+        // $newListingData["user_id"] = 1;
+
+        // Get user_id
+        $newListingData["user_id"] = Session::getSession("user")["id"];
 
         $requiredFields = ["title", "description", "salary", "email", "city", "state"];
 
