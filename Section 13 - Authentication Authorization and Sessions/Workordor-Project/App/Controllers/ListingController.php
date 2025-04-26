@@ -60,6 +60,7 @@ class ListingController
         // Check if listing exists
         if (!$listing) {
             ErrorControler::notFound("Listing not found");
+
             return;
         }
 
@@ -229,6 +230,7 @@ class ListingController
         // Check if listing exists
         if (!$listing) {
             ErrorControler::notFound("Listing not found");
+
             return;
         }
 
@@ -276,7 +278,10 @@ class ListingController
             $this->db->query($updateQuery, $updateValues);
 
             // Set flash message
-            $_SESSION["success_message"] = "Listing successfully updated";
+            // $_SESSION["success_message"] = "Listing successfully updated";
+
+            // Set flash message
+            Session::setFlashMessage("success_message", "Listing successfully updated");
 
             // And than redirect
             redirect("/listings/" . $id);
