@@ -14,6 +14,7 @@ class ListingController
     public function __construct()
     {
         $config = require basePath("config/db.php");
+
         $this->db = new Database($config);
     }
 
@@ -302,5 +303,23 @@ class ListingController
 
             // inspectAndDie($updateQuery);
         }
+    }
+
+    /**
+     * Search listings by keywords/location
+     * 
+     * @return void
+     */
+    public function search()
+    {
+        // inspectAndDie($_GET);
+        $keywords = isset($_GET["keywords"]) ? trim($_GET["keywords"]) : "";
+        $location = isset($_GET["location"]) ? trim($_GET["location"]) : "";
+
+        $query = "SELECT * FROM listings WHERE title LIKE '%Software%'";
+
+        $listings = $this->db->query($query)->fetchAll();
+
+        inspectAndDie($listings);
     }
 }
