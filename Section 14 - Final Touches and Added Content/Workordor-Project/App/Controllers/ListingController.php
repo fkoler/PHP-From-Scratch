@@ -316,9 +316,13 @@ class ListingController
         $keywords = isset($_GET["keywords"]) ? trim($_GET["keywords"]) : "";
         $location = isset($_GET["location"]) ? trim($_GET["location"]) : "";
 
-        $query = "SELECT * FROM listings WHERE title LIKE '%Software%'";
+        $query = "SELECT * FROM listings WHERE title LIKE :keywords";
 
-        $listings = $this->db->query($query)->fetchAll();
+        $params = [
+            "keywords" => "%{$keywords}%",
+        ];
+
+        $listings = $this->db->query($query, $params)->fetchAll();
 
         inspectAndDie($listings);
     }
