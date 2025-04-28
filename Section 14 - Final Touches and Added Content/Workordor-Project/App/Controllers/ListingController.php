@@ -25,7 +25,8 @@ class ListingController
      */
     public function index()
     {
-        $listings = $this->db->query("SELECT * FROM listings ORDER BY created_at DESC;")->fetchAll();
+        $listings = $this->db->query("SELECT * FROM listings 
+                                      ORDER BY created_at DESC;")->fetchAll();
 
         loadView("listings/index", [
             "listings" => $listings,
@@ -56,7 +57,8 @@ class ListingController
             "id" => $id,
         ];
 
-        $listing = $this->db->query("SELECT * FROM listings WHERE id = :id;", $params)->fetch();
+        $listing = $this->db->query("SELECT * FROM listings 
+                                     WHERE id = :id;", $params)->fetch();
 
         // Check if listing exists
         if (!$listing) {
@@ -159,7 +161,8 @@ class ListingController
             "id" => $id,
         ];
 
-        $listing = $this->db->query("SELECT * FROM listings WHERE id = :id;", $params)->fetch();
+        $listing = $this->db->query("SELECT * FROM listings 
+                                     WHERE id = :id;", $params)->fetch();
 
         // Check if listing exists
         if (!$listing) {
@@ -175,7 +178,8 @@ class ListingController
             return redirect("/listings/" . $listing->id);
         }
 
-        $this->db->query("DELETE FROM listings WHERE id = :id;", $params);
+        $this->db->query("DELETE FROM listings 
+                          WHERE id = :id;", $params);
 
         // Set flash message
         Session::setFlashMessage("success_message", "Listing deleted successfully");
@@ -197,7 +201,8 @@ class ListingController
             "id" => $id,
         ];
 
-        $listing = $this->db->query("SELECT * FROM listings WHERE id = :id;", $params)->fetch();
+        $listing = $this->db->query("SELECT * FROM listings 
+                                     WHERE id = :id;", $params)->fetch();
 
         // Check if listing exists
         if (!$listing) {
@@ -233,7 +238,8 @@ class ListingController
             "id" => $id,
         ];
 
-        $listing = $this->db->query("SELECT * FROM listings WHERE id = :id;", $params)->fetch();
+        $listing = $this->db->query("SELECT * FROM listings 
+                                     WHERE id = :id;", $params)->fetch();
 
         // Check if listing exists
         if (!$listing) {
@@ -287,7 +293,8 @@ class ListingController
 
             $updateFields = implode(", ", $updateFields);
 
-            $updateQuery = "UPDATE listings SET {$updateFields} WHERE id = :id;";
+            $updateQuery = "UPDATE listings SET {$updateFields} 
+                            WHERE id = :id;";
 
             $updateValues["id"] = $id;
             $this->db->query($updateQuery, $updateValues);
@@ -316,7 +323,11 @@ class ListingController
         $keywords = isset($_GET["keywords"]) ? trim($_GET["keywords"]) : "";
         $location = isset($_GET["location"]) ? trim($_GET["location"]) : "";
 
-        $query = "SELECT * FROM listings WHERE title LIKE :keywords";
+        $query = "SELECT * FROM listings 
+                  WHERE title LIKE :keywords
+                  OR description LIKE :keywords
+                  OR tags LIKE :keywords
+                  OR company LIKE :keywords";
 
         $params = [
             "keywords" => "%{$keywords}%",
