@@ -5,13 +5,21 @@
 <!-- Job Listings -->
 <section>
     <div class="container mx-auto p-4 mt-4">
-
         <div class="text-center text-3xl mb-4 font-bold border border-gray-300 p-3">
-            <?php if (isset($keywords)) : ?>
-                Search Results for: <?= htmlspecialchars($keywords) ?>
-            <?php else : ?>
-                All Jobs
-            <?php endif; ?>
+            <?php
+            $hasKeywords = trim($keywords ?? "");
+            $hasLocation = trim($location ?? "");
+
+            if ($hasKeywords && !$hasLocation) {
+                echo "Search Results for: " . htmlspecialchars($keywords);
+            } elseif (!$hasKeywords && $hasLocation) {
+                echo "Search Results for: " . htmlspecialchars($location);
+            } elseif ($hasKeywords && $hasLocation) {
+                echo "Search Results for: " . htmlspecialchars($keywords) . " and " . htmlspecialchars($location);
+            } else {
+                echo "All Jobs";
+            }
+            ?>
         </div>
 
         <?= loadPartial("message") ?>
